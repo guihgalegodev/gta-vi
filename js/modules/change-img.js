@@ -11,7 +11,7 @@ export default class TrocarImagem {
     e.preventDefault();
     const nomePersonagem = e.target.dataset.btn;
 
-    if (this.nome.innerText === nomePersonagem) return
+    if (this.nome.innerText === nomePersonagem) return;
 
     this.removeAtivo();
 
@@ -47,6 +47,14 @@ export default class TrocarImagem {
     }
   }
 
+  isNotebook() {
+    const screen = window.innerHeight;
+    if (screen < 720) {
+      this.nome.style.fontSize = "7.5rem";
+      this.foto.style.height = "400px";
+    }
+  }
+
   addAtivo() {
     if (
       !this.nome.classList.contains("active") &&
@@ -60,6 +68,7 @@ export default class TrocarImagem {
   init() {
     if (this.btnsImg.length && this.nome && this.foto) {
       this.addEvent();
+      this.isNotebook();
       this.addAtivo();
     }
   }
