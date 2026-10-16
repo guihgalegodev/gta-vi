@@ -9,33 +9,37 @@ export default class TrocarImagem {
 
   trocarPersonagem(e) {
     e.preventDefault();
-    this.removeAtivo();
     const nomePersonagem = e.target.dataset.btn;
-    let fotoUrlPersonagem = this.foto.getAttribute("src");
-    if (nomePersonagem === "Jason") {
+
+    if (this.nome.innerText === nomePersonagem) return
+
+    this.removeAtivo();
+
+    setTimeout(() => {
+      let fotoUrlPersonagem = this.foto.getAttribute("src");
+      
+ if (nomePersonagem === "Jason") {
       this.nome.style.color = "#00b2c9";
-      const fotoJason = fotoUrlPersonagem.replace(
+      this.foto.setAttribute("src", fotoUrlPersonagem.replace(
         /(?<=\/)[^\/]+(?=\.png)/,
-        nomePersonagem.toLowerCase(),
-      );
-      this.foto.setAttribute("src", fotoJason);
+        nomePersonagem.toLowerCase()));
     } else if (nomePersonagem === "Cj") {
       this.nome.style.color = "#7ed37e";
-      const fotoCj = fotoUrlPersonagem.replace(
+      this.foto.setAttribute("src", fotoUrlPersonagem.replace(
         /(?<=\/)[^\/]+(?=\.png)/,
-        nomePersonagem.toLowerCase(),
-      );
-      this.foto.setAttribute("src", fotoCj);
+        nomePersonagem.toLowerCase()));
     } else {
       this.nome.style.color = "#ff3cac";
-      const fotoLucia = fotoUrlPersonagem.replace(
+      this.foto.setAttribute("src", fotoUrlPersonagem.replace(
         /(?<=\/)[^\/]+(?=\.png)/,
-        nomePersonagem.toLowerCase(),
-      );
-      this.foto.setAttribute("src", fotoLucia);
+        nomePersonagem.toLowerCase()));
     }
+
     this.nome.innerText = nomePersonagem;
+    
     this.addAtivo();
+    }, 300);
+   
   }
 
   addEvent() {
