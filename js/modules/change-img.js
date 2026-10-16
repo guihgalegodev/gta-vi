@@ -16,30 +16,18 @@ export default class TrocarImagem {
     this.removeAtivo();
 
     setTimeout(() => {
-      let fotoUrlPersonagem = this.foto.getAttribute("src");
-      
- if (nomePersonagem === "Jason") {
-      this.nome.style.color = "#00b2c9";
-      this.foto.setAttribute("src", fotoUrlPersonagem.replace(
-        /(?<=\/)[^\/]+(?=\.png)/,
-        nomePersonagem.toLowerCase()));
-    } else if (nomePersonagem === "Cj") {
-      this.nome.style.color = "#7ed37e";
-      this.foto.setAttribute("src", fotoUrlPersonagem.replace(
-        /(?<=\/)[^\/]+(?=\.png)/,
-        nomePersonagem.toLowerCase()));
-    } else {
-      this.nome.style.color = "#ff3cac";
-      this.foto.setAttribute("src", fotoUrlPersonagem.replace(
-        /(?<=\/)[^\/]+(?=\.png)/,
-        nomePersonagem.toLowerCase()));
-    }
+      const cores = {
+        Jason: "#00b2c9",
+        Cj: "#7ed37e",
+        Lucia: "#ff3cac",
+      };
 
-    this.nome.innerText = nomePersonagem;
-    
-    this.addAtivo();
+      this.nome.style.color = cores[nomePersonagem] || "#ff3cac";
+      this.foto.setAttribute("src", `img/${nomePersonagem.toLowerCase()}.png`);
+      this.nome.innerText = nomePersonagem;
+
+      this.addAtivo();
     }, 300);
-   
   }
 
   addEvent() {
