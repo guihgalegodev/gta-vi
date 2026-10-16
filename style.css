@@ -1,0 +1,190 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Bangers", system-ui;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: url("img/background2.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow-y: hidden;
+}
+
+.nome {
+  color: #ff3cac;
+  font-size: 22.5rem;
+  position: absolute;
+  bottom: 350px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translate3d(0px, -10px, 0px);
+  transition: 0.3s;
+}
+
+.nome.active {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.personagem {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 600px;
+  margin: auto;
+  opacity: 0;
+  transform: translate3d(0px, 10px, 0px);
+  transition: 0.3s;
+}
+
+.personagem.active {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.textos {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+}
+
+.etiqueta {
+  font-size: 1.625rem;
+  color: #ffd319;
+}
+
+h1 {
+  font-size: 4.5rem;
+  color: #ffffff;
+}
+
+.texto-apoio {
+  color: #ffffff;
+  font-size: 0.875;
+}
+
+.menu {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid #ffffff;
+}
+
+.voce {
+  background-color: #ffd319;
+  padding: 15px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+@media (max-width: 1100px) {
+  .menu {
+    justify-content: end;
+  }
+
+  .nome {
+    font-size: 18.5rem;
+  }
+
+  .personagem {
+    height: 500px;
+  }
+
+  .etiqueta {
+    font-size: 1.35rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 730px) {
+  .nome {
+    font-size: 12.5rem;
+  }
+
+  .personagem {
+    height: 430px;
+  }
+
+  .etiqueta {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  .voce {
+    padding: 13px;
+  }
+}
+
+@media (max-width: 650px) {
+  .textos {
+    bottom: 95px;
+  }
+
+  .nome {
+    font-size: 8rem;
+  }
+
+  .personagem {
+    height: 400px;
+  }
+
+  .menu {
+    width: max-content;
+    justify-content: start;
+    margin-left: 30px;
+  }
+
+  .etiqueta {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .texto-apoio {
+    font-size: 0.75;
+  }
+}
+
+@media (max-height: 475px) {
+  .personagem {
+    height: 250px;
+  }
+
+  .nome {
+    font-size: 7rem;
+    bottom: 170px;
+  }
+}
