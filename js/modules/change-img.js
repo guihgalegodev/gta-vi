@@ -5,6 +5,7 @@ export default class TrocarImagem {
     this.foto = document.querySelector(foto);
 
     this.trocarPersonagem = this.trocarPersonagem.bind(this);
+    this.checkHeightScreen = this.checkHeightScreen.bind(this);
   }
 
   trocarPersonagem(e) {
@@ -35,6 +36,7 @@ export default class TrocarImagem {
       btn.addEventListener("click", this.trocarPersonagem);
       btn.addEventListener("touchstart", this.trocarPersonagem);
     });
+    window.addEventListener("resize", this.checkHeightScreen);
   }
 
   removeAtivo() {
@@ -47,11 +49,17 @@ export default class TrocarImagem {
     }
   }
 
-  isNotebook() {
-    const screen = window.innerHeight;
-    if (screen < 720) {
+  checkHeightScreen() {
+    const screenHeight = window.innerHeight;
+    if (screenHeight > 700) {
+      this.nome.style.fontSize = "22.5rem";
+      this.foto.style.height = "600px";
+    } else if (screenHeight < 700 && screenHeight > 475) {
       this.nome.style.fontSize = "7.5rem";
       this.foto.style.height = "400px";
+    } else {
+      this.nome.style.fontSize = "7rem";
+      this.foto.style.height = "250px";
     }
   }
 
@@ -68,7 +76,7 @@ export default class TrocarImagem {
   init() {
     if (this.btnsImg.length && this.nome && this.foto) {
       this.addEvent();
-      this.isNotebook();
+      this.checkHeightScreen();
       this.addAtivo();
     }
   }

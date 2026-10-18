@@ -156,10 +156,6 @@ h1 {
     bottom: 95px;
   }
 
-  .nome {
-    font-size: 8rem;
-  }
-
   .personagem {
     height: 400px;
   }
@@ -184,17 +180,12 @@ h1 {
 }
 
 @media (max-height: 475px) {
-  .personagem {
-    height: 250px;
-  }
-
   .nome {
-    font-size: 7rem;
-    bottom: 170px;
+    bottom: 165px;
   }
 
   .texto-apoio {
-    font-size: 0.65;
+    font-size: 0.65rem;
   }
 
   .avatar {
